@@ -10,14 +10,13 @@ export class App extends React.Component {
     };
   }
 
-  componentDidMount() {
-    getCandidates().then((candidates) =>
-      this.setState({ candidates: candidates })
-    );
+  async componentDidMount() {
+    const candidates = await getCandidates();
+    this.setState({ candidates: candidates });
   }
   renderCandidate(candidate) {
     return (
-      <tr>
+      <tr key={candidate.id}>
         <td>{candidate.name}</td>
         <td>{candidate.rank}</td>
       </tr>
