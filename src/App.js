@@ -1,12 +1,20 @@
 import React from "react";
-
-const candidates = [
-  { name: "Cory", rank: "Airman" },
-  { name: "Cory1", rank: "Airman" },
-  { name: "Cory2", rank: "Airman" },
-];
+import { getCandidates } from "./api/candidatesApi";
 
 export class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      candidates: [],
+    };
+  }
+
+  componentDidMount() {
+    getCandidates().then((candidates) =>
+      this.setState({ candidates: candidates })
+    );
+  }
   renderCandidate(candidate) {
     return (
       <tr>
@@ -26,7 +34,7 @@ export class App extends React.Component {
               <th>Rank</th>
             </tr>
           </thead>
-          <tbody>{candidates.map(this.renderCandidate)}</tbody>
+          <tbody>{this.state.candidates.map(this.renderCandidate)}</tbody>
         </table>
       </React.Fragment>
     );
