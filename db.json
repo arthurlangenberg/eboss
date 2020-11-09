@@ -1,0 +1,7 @@
+{
+  "candidates": [
+    { "id": 1, "name": "Bunny, Bugs", "rank": "Airman" },
+    { "id": 2, "name": "Gonzales, Speedy", "rank": "General" },
+    { "id": 3, "name": "Fudd, Elmer", "rank": "Tech Seargent" }
+  ]
+}

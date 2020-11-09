@@ -8,15 +8,25 @@ export const App = () => {
   ];
   function renderCandidate(candidate) {
     return (
-      <li>
-        {candidate.name} - {candidate.rank}
-      </li>
+      <tr>
+        <td>{candidate.name}</td>
+        <td>{candidate.rank}</td>
+      </tr>
     );
   }
+
   return (
     <React.Fragment>
       <h2>Candidates</h2>
-      <ul>{candidates.map(renderCandidate)}</ul>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Rank</th>
+          </tr>
+        </thead>
+        <tbody>{candidates.map(renderCandidate)}</tbody>
+      </table>
     </React.Fragment>
   );
 };
