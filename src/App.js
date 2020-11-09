@@ -1,17 +1,19 @@
 import React from "react";
 import { Candidates } from "./Candidates";
 import { CandidateDetails } from "./CandidateDetails";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
+
 export function App() {
   return (
     <>
-      <Route path="/">
+      <Link to="/">Home</Link> | <Link to="/candidates">Candidates</Link>
+      <Route path="/" exact>
+        <h1>Home page!</h1>
+      </Route>
+      <Route path="/candidates">
         <Candidates />
       </Route>
-
-      <Route path="/details">
-        <CandidateDetails />
-      </Route>
+      <Route path="/details/:candidateId" component={CandidateDetails}></Route>
     </>
   );
 }

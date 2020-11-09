@@ -1,5 +1,6 @@
 import React from "react";
 import { getCandidates } from "./api/candidatesApi";
+import { Link } from "react-router-dom";
 
 export class Candidates extends React.Component {
   constructor(props) {
@@ -17,7 +18,9 @@ export class Candidates extends React.Component {
   renderCandidate(candidate) {
     return (
       <tr key={candidate.id}>
-        <td>{candidate.name}</td>
+        <td>
+          <Link to={"/details/" + candidate.id}>{candidate.name}</Link>
+        </td>
         <td>{candidate.rank}</td>
       </tr>
     );

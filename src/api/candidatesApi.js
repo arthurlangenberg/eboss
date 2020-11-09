@@ -3,3 +3,9 @@ export async function getCandidates() {
   if (!response.ok) throw response;
   return response.json();
 }
+
+export async function getCandidateById(id) {
+  const response = await fetch("http://localhost:3001/candidates/" + id);
+  if (!response.ok) throw response;
+  return response.json();
+}
